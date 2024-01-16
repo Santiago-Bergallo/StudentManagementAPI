@@ -1,5 +1,6 @@
 package studentSystem.studentSystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,9 +24,12 @@ public class Student {
     @Column(name = "surname", nullable = false)
     private String surname;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.REMOVE, orphanRemoval = true)
+
+    @Setter @Getter @JsonIgnore
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Course> courses = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<StudentAddress> studentAddresses = new ArrayList<>();
 

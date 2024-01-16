@@ -1,5 +1,6 @@
 package studentSystem.studentSystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +21,7 @@ public class Subject {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "subject", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Course> courses = new ArrayList<>();
 

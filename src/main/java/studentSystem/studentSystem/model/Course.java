@@ -14,11 +14,14 @@ public class Course {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.REMOVE, optional = false)
+    @Getter @Setter
+    private Integer grade;
+
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "student_id", nullable = false)
     private Student student;
 
-    @ManyToOne(cascade = CascadeType.REMOVE, optional = false)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "subject_id", nullable = false)
     private Subject subject;
 
