@@ -29,4 +29,10 @@ public class RegistrationBody {
     @Getter @Setter
     private List<StudentAddressRegistrationBody> studentAddresses = new ArrayList<>();
 
+    @Getter @Setter
+    private String password;
+
+    @Getter @Setter
+    private String username;
+
 }
